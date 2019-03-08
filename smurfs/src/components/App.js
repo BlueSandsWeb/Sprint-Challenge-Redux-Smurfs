@@ -54,22 +54,24 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>SMURFS VILLAGE! 2.0 W/ Redux</h1>
-        <div>
-          <form onSubmit={this.addSmurf}>
-            <p>Add A Smurf</p>
-            <input type="text" name="name" value={this.state.name} onChange={this.onChange} placeholder="Name" />
-            <input type="number" name="age" value={this.state.age} onChange={this.onChange} placeholder="Age" />
-            <input type="text" name="height" value={this.state.height} onChange={this.onChange} placeholder="Height" />
-            <button>Add Smurf</button>
-          </form>
-        </div>
-        <div>
-          {this.props.smurfs.map(smurf => {
-            return (
-              <Smurf smurf={smurf} key={smurf.id} />
-            );
-          })}
+        <h1 className="title">SMURFS VILLAGE! 2.0 W/ Redux</h1>
+        <div className="app-container">
+          <div className="add-form-container">
+            <h3>Add A Smurf</h3>
+            <form onSubmit={this.addSmurf} className="add-form">
+              <input type="text" name="name" value={this.state.name} onChange={this.onChange} placeholder="Name" />
+              <input type="number" name="age" value={this.state.age} onChange={this.onChange} placeholder="Age" />
+              <input type="text" name="height" value={this.state.height} onChange={this.onChange} placeholder="Height" />
+              <button>Add Smurf</button>
+            </form>
+          </div>
+          <div className="smurf-list">
+            {this.props.smurfs.map(smurf => {
+              return (
+                <Smurf smurf={smurf} key={smurf.id} />
+              );
+            })}
+          </div>
         </div>
       </div>
     );
